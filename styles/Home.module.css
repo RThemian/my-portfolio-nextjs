@@ -6,9 +6,16 @@
 }
 
 .pageSection {
-
+    /* TODO: Add styles for page section here */
 }
 
 .pageSection > h2 {
     text-align: center;
+}
+
+.projectsWrapper {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
