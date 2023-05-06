@@ -10,21 +10,37 @@ function Form(props) {
 
     const [formState, setFormState] = useState(getNewState());
 
+    const encode = ({ name, email, message }) => { 
+        return `form-name=contact&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`;
+    };  
+
     const handleChange = (event) => {
         setFormState({
             ...formState,
             [event.target.name]: event.target.value
         });
     };
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+        await fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/x-www-form-urlencoded'
+            },
+            body: encode(formState)
+        });
+
         setFormState(getNewState());
     };
 
     const { name, email, message } = formState;
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form 
+            onSubmit={handleSubmit} 
+            className={styles.form} 
+            data-netlify="true" 
+            name="contact"
+        >
         <input type="hidden" name="form-name"  value="contact" />
         <label htmlFor="name">Name:</label>
             <input 
