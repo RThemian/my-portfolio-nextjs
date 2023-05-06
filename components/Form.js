@@ -2,18 +2,30 @@ import { useState } from 'react';
 import styles from '@/styles/Form.module.css';
 
 function Form(props) {
-    const [formState, setFormState] = useState({
+    const getNewState = () => ({
         name: '',
         email: '',
         message: ''
     });
 
-    const handleChange = (event) => {};
-    const handleSubmit = (event) => {};
+    const [formState, setFormState] = useState(getNewState());
+
+    const handleChange = (event) => {
+        setFormState({
+            ...formState,
+            [event.target.name]: event.target.value
+        });
+    };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(formState);
+        setFormState(getNewState());
+    };
 
     const { name, email, message } = formState;
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
+        <input type="hidden" name="form-name"  value="contact" />
         <label htmlFor="name">Name:</label>
             <input 
                 id="name"
@@ -33,7 +45,6 @@ function Form(props) {
         <label htmlFor="message">Message:</label>
             <textarea
                 id="message"
-                type="text" 
                 name="message" 
                 onChange={handleChange}
                 value={message}
