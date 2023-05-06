@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import ProjectCard from '@/components/ProjectCard';
+import Form from '@/components/Form';
 import projectData from '@/public/project-data';
 
 
@@ -61,7 +62,7 @@ export default function Home() {
         </section>
         <section className={styles.pageSection}>
           <h2>Contact</h2>
-
+          <Form />
         </section>
       </main>
     </>
