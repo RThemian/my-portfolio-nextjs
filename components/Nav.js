@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import styles from  '@/styles/Nav.module.css';
+import { usePathname } from 'next/navigation';
 
 function Nav() {
+    const path = usePathname();
     return (
         <nav className={styles.nav}>
-            <Link href="/resume">Resume</Link>
+            { path === '/' ?
+                <Link href="/resume">Resume</Link>
+                :
+                <Link href="/">Home</Link>
+            }
         </nav>
     );
 }
