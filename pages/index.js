@@ -30,8 +30,8 @@ export default function Home() {
         </section>
         <section className={`${styles.pageSection} ${styles.skillsSection}`}>
           <h2>Skills</h2>
-          <div>
-            <Image src="/html5_icon.png" width={64} height={64} alt="html5"/>
+          <div className={styles.iconsContainer}>
+            <Image src="/html5_icon.png" width={64} height={64} alt="html5" className='first'/>
             <Image src="/css3_icon.png" width={64} height={64} alt="css3"/>
             <Image src="/javascript_icon.png" width={64} height={64} alt="javascript"/>
             <Image src="/react_icon.png" width={64} height={64} alt="react"/>

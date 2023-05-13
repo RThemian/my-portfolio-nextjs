@@ -1,11 +1,11 @@
 .header {
     height: 18.75rem;
-    padding-top: 2rem;
     font-size: 4vmin;
 }
 
 .header > div {
     flex-direction: column;
+    margin-top: 5rem;
 }
 
 .header img {

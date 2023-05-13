@@ -1,3 +1,4 @@
+import SocialIcons from './SocialIcons';
 import Image from 'next/image';
 import styles from '@/styles/Header.module.css';
 
@@ -7,6 +8,7 @@ function Header() {
             <div className="flex-ctr-centered">
                 <Image src="/daniel-scott.png" height={200} width={200} alt="Daniel Scott" />
                 <h1>Hi, I'm Daniel Scott</h1>
+                <SocialIcons />
             </div>
         </header>
     );
